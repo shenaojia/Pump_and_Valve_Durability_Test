@@ -1,0 +1,589 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: PWR ADSensor MotorValveDriver ValveDriver ControlNode
+VAL_TABLE_ MonitorTime 0 "disable heartbeat monitor" ;
+VAL_TABLE_ HeartbeatAlive 1 "Alive" 0 "Lost" ;
+VAL_TABLE_ PowerState 1 "Power On" 0 "Power Off" ;
+VAL_TABLE_ DebugMode 1 "Debug Actived" 0 "Debug Deactived" ;
+VAL_TABLE_ SelectedChannel 15 "RESV_CH8" 14 "RESV_CH7" 13 "RESV_CH6" 12 "VV" 11 "RESV_CH4" 10 "RESV_CH3" 9 "RESV_CH2" 8 "MOT1" 7 "ASV4" 6 "ASV3" 5 "ASV2" 4 "ASV1" 3 "RV4" 2 "RV3" 1 "RV2" 0 "RV1" ;
+VAL_TABLE_ DriverCommand 2 "Close Selected Channels" 1 "Open Selected Channels" 0 "Closed All" ;
+VAL_TABLE_ MotorDriverState 3 "In Protection" 2 "n.a." 1 "Duty Control" 0 "No Control" ;
+VAL_TABLE_ VavleDriverState 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_TABLE_ EnableSet 1 "enableSetting" 0 "disableSetting" ;
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ P1_Invalid : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Humidity_Invalid : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147545103 PWR_Version: 5 PWR
+ SG_ HeartbeatMonitorTime : 32|8@1+ (1,0) [0|0] "s"  ControlNode
+ SG_ IsDebugModeOn : 24|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Year : 16|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Month : 8|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Day : 0|8@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147545088 PWR_Configuration: 4 ControlNode
+ SG_ SetHeartbeatMonitorTime : 24|8@1+ (1,0) [0|0] "s"  PWR
+ SG_ EnableHeartbeatMonitorTimeSet : 16|1@1+ (1,0) [0|0] ""  PWR
+ SG_ SetDebugMode : 8|1@1+ (1,0) [0|0] ""  PWR
+ SG_ EnabledDebugModeSet : 0|1@1+ (1,0) [0|0] ""  PWR
+
+BO_ 2147545089 PWR_Control: 2 ControlNode
+ SG_ SetPower48V : 1|1@1+ (1,0) [0|0] ""  PWR
+ SG_ SetPower12V : 0|1@1+ (1,0) [0|0] ""  PWR
+ SG_ Enable48VPowerSet : 9|1@1+ (1,0) [0|0] ""  PWR
+ SG_ Enable12VPowerSet : 8|1@1+ (1,0) [0|0] ""  PWR
+
+BO_ 2147483649 PC_Heartbeat: 1 ControlNode
+ SG_ Monitor_Dummy : 0|8@1+ (1,0) [0|0] ""  PWR
+
+BO_ 2147545090 PWR_Response: 2 PWR
+ SG_ IsHeartbeatAlive : 8|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ IsDebugModeOn : 9|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Power48VState : 1|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Power12VState : 0|1@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147495943 VD_Control_Data: 16 Vector__XXX
+ SG_ ValvesCurrentPID_P : 96|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ValvesCurrentPID_I : 64|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ValvesCurrentPID_D : 32|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ CH5to8PWMFreq : 16|16@1+ (0.01,0) [1|100] "kHz" Vector__XXX
+ SG_ CH1to4PWMFreq : 0|16@1+ (0.01,0) [1|100] "kHz" Vector__XXX
+
+BO_ 2147495942 VD_Control_Config: 20 Vector__XXX
+ SG_ SetValvesCurrentPID_P : 88|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ SetValvesCurrentPID_I : 56|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ SetValvesCurrentPID_D : 120|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ EnableValvesCurrentPIDSet : 48|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EnableCH5to8PWMFreqSet : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EnableCH1to4PWMFreqSet : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SetCH5to8PWMFreq : 32|16@1+ (0.01,0) [1|100] "kHz" Vector__XXX
+ SG_ SetCH1to4PWMFreq : 8|16@1+ (0.01,0) [1|100] "kHz" Vector__XXX
+
+BO_ 2147496199 MVD_Control_Data: 16 Vector__XXX
+ SG_ ValvesCurrentPID_P : 96|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ValvesCurrentPID_I : 64|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ValvesCurrentPID_D : 32|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ CH5to8PWMFreq : 16|16@1+ (0.01,0) [1|100] "kHz" Vector__XXX
+ SG_ CH1to4PWMFreq : 0|16@1+ (0.01,0) [1|100] "kHz" Vector__XXX
+
+BO_ 2147496198 MVD_Control_Config: 20 Vector__XXX
+ SG_ SetValvesCurrentPID_P : 88|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ SetValvesCurrentPID_I : 56|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ SetValvesCurrentPID_D : 120|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ EnableValvesCurrentPIDSet : 48|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EnableCH5to8PWMFreqSet : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EnableCH1to4PWMFreqSet : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SetCH5to8PWMFreq : 32|16@1+ (0.01,0) [1|100] "kHz" Vector__XXX
+ SG_ SetCH1to4PWMFreq : 8|16@1+ (0.01,0) [1|100] "kHz" Vector__XXX
+
+BO_ 2147496194 MVD_DriverState: 8 MotorValveDriver
+ SG_ RESV_CH8_State : 56|2@1+ (1,0) [0|1] ""  ControlNode
+ SG_ RESV_CH7_State : 48|2@1+ (1,0) [0|1] ""  ControlNode
+ SG_ RESV_CH6_State : 40|2@1+ (1,0) [0|1] ""  ControlNode
+ SG_ VV_State : 32|2@1+ (1,0) [0|1] ""  ControlNode
+ SG_ RESV_CH4_State : 24|2@1+ (1,0) [0|1] ""  ControlNode
+ SG_ RESV_CH3_State : 16|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ RESV_Motor_CH2_State : 8|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ Motor_State : 0|2@1+ (1,0) [0|3] ""  ControlNode
+
+BO_ 2147495938 VD_DriverState: 8 ValveDriver
+ SG_ RV4_State : 24|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ RV3_State : 16|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ RV2_State : 8|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ RV1_State : 0|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ ASV4_State : 56|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ ASV3_State : 48|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ ASV2_State : 40|2@1+ (1,0) [0|3] ""  ControlNode
+ SG_ ASV1_State : 32|2@1+ (1,0) [0|3] ""  ControlNode
+
+BO_ 2147495936 VD_Configuration: 8 ControlNode
+ SG_ SetValvesRecoverTime : 40|8@1+ (2,0) [0|510] "s"  ValveDriver
+ SG_ SetValvesMaxWorkTime : 32|8@1+ (2,0) [0|510] "s"  ValveDriver
+ SG_ EnableValveProtectionTimerSet : 24|1@1+ (1,0) [0|0] ""  ValveDriver
+ SG_ EnableCANPeriodSet : 0|1@1+ (1,0) [0|0] ""  ValveDriver
+ SG_ CANPeriodSet : 8|16@1+ (1,0) [0|2000] "ms"  ValveDriver
+
+BO_ 2147496192 MVD_Configuration: 8 ControlNode
+ SG_ EnableMotorProtectionTimerSet : 40|1@1+ (1,0) [0|0] ""  MotorValveDriver
+ SG_ SetValvesRecoverTime : 32|8@1+ (2,0) [0|510] "s"  MotorValveDriver
+ SG_ SetValvesMaxWorkTime : 24|8@1+ (2,0) [0|510] "s"  MotorValveDriver
+ SG_ SetMotorsRecoverTime : 56|8@1+ (2,0) [0|510] "s"  MotorValveDriver
+ SG_ SetMotorsMaxWorkTime : 48|8@1+ (2,0) [0|510] "s"  MotorValveDriver
+ SG_ EnableValveProtectionTimerSet : 16|1@1+ (1,0) [0|0] ""  MotorValveDriver
+ SG_ EnableCANPeriodSet : 0|1@1+ (1,0) [0|0] ""  MotorValveDriver
+ SG_ CANPeriodSet : 4|12@1+ (1,0) [0|2000] "ms"  MotorValveDriver
+
+BO_ 2147496207 MVD_Version: 12 MotorValveDriver
+ SG_ CANPeriod : 24|16@1+ (1,0) [0|2000] "ms"  ControlNode
+ SG_ MotorsRecoverTime : 64|8@1+ (2,0) [0|510] "s"  ControlNode
+ SG_ MotorsMaxWorkTime : 56|8@1+ (2,0) [0|510] "s"  ControlNode
+ SG_ ValvesRecoverTime : 48|8@1+ (2,0) [0|510] "s"  ControlNode
+ SG_ ValvesMaxWorkTime : 40|8@1+ (2,0) [0|510] "s"  ControlNode
+ SG_ Version_Year : 0|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Month : 8|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Day : 16|8@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147496195 MVD_ValvesDutyControl: 16 ControlNode
+ SG_ RESV_CH8_Duty : 112|16@1+ (0.01,0) [0|100] "%"  MotorValveDriver
+ SG_ RESV_CH7_Duty : 96|16@1+ (0.01,0) [0|100] "%"  MotorValveDriver
+ SG_ RESV_CH6_Duty : 80|16@1+ (0.01,0) [0|100] "%"  MotorValveDriver
+ SG_ VV_Duty : 64|16@1+ (0.01,0) [0|100] "%"  MotorValveDriver
+ SG_ RESV_CH4_Duty : 48|16@1+ (0.01,0) [0|100] "%"  MotorValveDriver
+ SG_ RESV_CH3_Duty : 32|16@1+ (0.01,0) [0|100] "%"  MotorValveDriver
+
+BO_ 2147495941 VD_Current_Control: 16 ControlNode
+ SG_ ASV4_Target_Current : 112|16@1+ (0.001,0) [0|5] "A"  ValveDriver
+ SG_ ASV3_Target_Current : 96|16@1+ (0.001,0) [0|5] "A"  ValveDriver
+ SG_ ASV2_Target_Current : 80|16@1+ (0.001,0) [0|5] "A"  ValveDriver
+ SG_ ASV1_Target_Current : 64|16@1+ (0.001,0) [0|5] "A"  ValveDriver
+ SG_ RV4_Target_Current : 48|16@1+ (0.001,0) [0|5] "A"  ValveDriver
+ SG_ RV3_Target_Current : 32|16@1+ (0.001,0) [0|5] "A"  ValveDriver
+ SG_ RV2_Target_Current : 16|16@1+ (0.001,0) [0|5] "A"  ValveDriver
+ SG_ RV1_Target_Current : 0|16@1+ (0.001,0) [0|5] "A"  ValveDriver
+
+BO_ 2147495937 VD_ActualCurrent: 16 ValveDriver
+ SG_ ASV4_I : 112|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ ASV3_I : 96|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ ASV2_I : 80|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ ASV1_I : 64|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ RV4_I : 48|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ RV3_I : 32|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ RV2_I : 16|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ RV1_I : 0|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+
+BO_ 2147496196 MVD_MotorsDutyControl: 4 ControlNode
+ SG_ RESV_M_CH2_Duty : 16|16@1+ (0.01,0) [0|100] "%"  MotorValveDriver
+ SG_ Motor_Duty : 0|16@1+ (0.01,0) [0|100] "%"  MotorValveDriver
+
+BO_ 2147496197 MVD_ValvesCurrentControl: 16 ControlNode
+ SG_ RESV_CH8_Target_Current : 112|16@1+ (0.001,0) [0|5] "A"  MotorValveDriver
+ SG_ RESV_CH7_Target_Current : 96|16@1+ (0.001,0) [0|5] "A"  MotorValveDriver
+ SG_ RESV_CH6_Target_Current : 80|16@1+ (0.001,0) [0|5] "A"  MotorValveDriver
+ SG_ VV_Target_Current : 64|16@1+ (0.001,0) [0|5] "A"  MotorValveDriver
+ SG_ RESV_CH4_Target_Current : 48|16@1+ (0.001,0) [0|5] "A"  MotorValveDriver
+ SG_ RESV_CH3_Target_Current : 32|16@1+ (0.001,0) [0|5] "A"  MotorValveDriver
+
+BO_ 2147495939 VD_Duty_Control: 16 ControlNode
+ SG_ ASV4_Duty : 112|16@1+ (0.01,0) [0|100] "%"  ValveDriver
+ SG_ ASV3_Duty : 96|16@1+ (0.01,0) [0|100] "%"  ValveDriver
+ SG_ ASV2_Duty : 80|16@1+ (0.01,0) [0|100] "%"  ValveDriver
+ SG_ ASV1_Duty : 64|16@1+ (0.01,0) [0|100] "%"  ValveDriver
+ SG_ RV4_Duty : 48|16@1+ (0.01,0) [0|100] "%"  ValveDriver
+ SG_ RV3_Duty : 32|16@1+ (0.01,0) [0|100] "%"  ValveDriver
+ SG_ RV2_Duty : 16|16@1+ (0.01,0) [0|100] "%"  ValveDriver
+ SG_ RV1_Duty : 0|16@1+ (0.01,0) [0|100] "%"  ValveDriver
+
+BO_ 2147495951 VD_Version: 7 ValveDriver
+ SG_ CANPeriod : 24|16@1+ (1,0) [0|2000] "ms"  ControlNode
+ SG_ ValvesRecoverTime : 48|8@1+ (2,0) [0|255] "s"  ControlNode
+ SG_ ValvesMaxWorkTime : 40|8@1+ (2,0) [0|255] "s"  ControlNode
+ SG_ Version_Year : 0|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Month : 8|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Day : 16|8@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147496193 MVD_ActualCurrent: 16 MotorValveDriver
+ SG_ RESV_M_CH2_I : 16|16@1- (0.01220703125,-200) [-150|150] "A"  ControlNode
+ SG_ Motor_I : 0|16@1- (0.01220703125,-200) [-150|150] "A"  ControlNode
+ SG_ RESV_V_CH8_I : 112|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ RESV_V_CH7_I : 96|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ RESV_V_CH6_I : 80|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ VV_I : 64|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ RESV_V_CH4_I : 48|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+ SG_ RESV_V_CH3_I : 32|16@1- (0.000488125049984007,-7.99744081893794) [-20|20] "A"  ControlNode
+
+BO_ 2147496452 ADSensor_Humidity: 4 ADSensor
+ SG_ Humidity : 0|32@1- (1,0) [0|0] "%"  ControlNode
+
+BO_ 2147496451 ADSensor_Pressure1: 4 ADSensor
+ SG_ P1_Pressure : 0|32@1- (1,0) [0|0] "MPa"  ControlNode
+
+BO_ 2147496450 ADSensor_Pressure2: 4 ADSensor
+ SG_ P2_Pressure : 0|32@1- (1,0) [0|0] "MPa"  ControlNode
+
+BO_ 2147496449 ADSensor_Temperature: 4 ADSensor
+ SG_ Temperature : 0|32@1- (1,0) [0|0] "deg"  ControlNode
+
+BO_ 2147496453 ADSensor_SersorValues: 20 ADSensor
+ SG_ NTC_RES : 128|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ P2_bar : 64|32@1- (1,0) [0|0] "bar"  ControlNode
+ SG_ P1_bar : 32|32@1- (1,0) [0|0] "bar"  ControlNode
+ SG_ Temp_Invalid : 145|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ P2_Invalid : 144|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Temperature : 96|32@1- (1,0) [0|0] "deg"  ControlNode
+ SG_ Humidity : 0|32@1- (1,0) [0|0] "%"  ControlNode
+
+BO_ 2147496463 ADSensor_Version: 4 ADSensor
+ SG_ CANSendPeriod : 24|8@1+ (0.1,0) [0|25.5] "s"  ControlNode
+ SG_ Version_Year : 0|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Month : 8|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Day : 16|8@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147496448 ADSensor_Configuration: 2 ControlNode
+ SG_ EnableCANPeriodSet : 0|1@1+ (1,0) [0|0] ""  ADSensor
+ SG_ SetCANSendPeriod : 8|8@1+ (0.1,0) [0|25.5] "s"  ADSensor
+
+BO_ 2147496201 MVD_MotorProtectLevelState: 12 MotorValveDriver
+ SG_ ShortProtect_ActCurrent : 64|8@1+ (1,0) [20|100] "A"  ControlNode
+ SG_ ProtectLvl4_ActTime : 56|8@1+ (1,0) [1|255] "s"  ControlNode
+ SG_ ProtectLvl4_ActCurrent : 48|8@1+ (1,0) [20|100] "A"  ControlNode
+ SG_ ProtectLvl3_ActTime : 40|8@1+ (1,0) [1|255] "s"  ControlNode
+ SG_ ProtectLvl3_ActCurrent : 32|8@1+ (1,0) [20|100] "A"  ControlNode
+ SG_ ProtectLvl2_ActTime : 24|8@1+ (1,0) [1|255] "s"  ControlNode
+ SG_ ProtectLvl2_ActCurrent : 16|8@1+ (1,0) [20|100] "A"  ControlNode
+ SG_ ProtectLvl1_ActTime : 8|8@1+ (1,0) [1|255] "s"  ControlNode
+ SG_ ProtectLvl1_ActCurrent : 0|8@1+ (1,0) [20|100] "A"  ControlNode
+
+BO_ 2147496200 MVD_MotorProtectLevelSet: 16 ControlNode
+ SG_ ShortProtect_EnableSet : 96|8@1+ (1,0) [20|100] ""  MotorValveDriver
+ SG_ ShortProtect_Current : 104|8@1+ (1,0) [80|150] "A"  MotorValveDriver
+ SG_ ProtectLvl4_Time : 88|8@1+ (1,0) [1|255] "s"  MotorValveDriver
+ SG_ ProtectLvl4_EanbleSet : 72|8@1+ (1,0) [0|1] ""  MotorValveDriver
+ SG_ ProtectLvl4_Current : 80|8@1+ (1,0) [15|100] "A"  MotorValveDriver
+ SG_ ProtectLvl3_Time : 64|8@1+ (1,0) [1|255] "s"  MotorValveDriver
+ SG_ ProtectLvl3_EanbleSet : 48|8@1+ (1,0) [0|1] ""  MotorValveDriver
+ SG_ ProtectLvl3_Current : 56|8@1+ (1,0) [15|100] "A"  MotorValveDriver
+ SG_ ProtectLvl2_Time : 40|8@1+ (1,0) [1|255] "s"  MotorValveDriver
+ SG_ ProtectLvl2_EanbleSet : 24|8@1+ (1,0) [0|1] ""  MotorValveDriver
+ SG_ ProtectLvl2_Current : 32|8@1+ (1,0) [15|100] "A"  MotorValveDriver
+ SG_ ProtectLvl1_Time : 16|8@1+ (1,0) [1|255] "s"  MotorValveDriver
+ SG_ ProtectLvl1_EanbleSet : 0|8@1+ (1,0) [0|1] ""  MotorValveDriver
+ SG_ ProtectLvl1_Current : 8|8@1+ (1,0) [15|100] "A"  MotorValveDriver
+
+
+
+CM_ "AD7606";
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 2147545103 HeartbeatMonitorTime "Control Channel1-Channel4";
+CM_ SG_ 2147545088 SetHeartbeatMonitorTime "Control Channel1-Channel4";
+CM_ SG_ 2147495943 ValvesCurrentPID_P "Control Channel1-Channel4";
+CM_ SG_ 2147495943 ValvesCurrentPID_I "Control Channel1-Channel4";
+CM_ SG_ 2147495943 ValvesCurrentPID_D "Control Channel1-Channel4";
+CM_ SG_ 2147495943 CH5to8PWMFreq "Control Channel1-Channel4";
+CM_ SG_ 2147495943 CH1to4PWMFreq "Control Channel1-Channel4";
+CM_ SG_ 2147495942 SetValvesCurrentPID_P "Control Channel1-Channel4";
+CM_ SG_ 2147495942 SetValvesCurrentPID_I "Control Channel1-Channel4";
+CM_ SG_ 2147495942 SetValvesCurrentPID_D "Control Channel1-Channel4";
+CM_ SG_ 2147495942 EnableValvesCurrentPIDSet "Control Channel1-Channel4";
+CM_ SG_ 2147495942 EnableCH5to8PWMFreqSet "Control Channel1-Channel4";
+CM_ SG_ 2147495942 EnableCH1to4PWMFreqSet "Control Channel1-Channel4";
+CM_ SG_ 2147495942 SetCH5to8PWMFreq "Control Channel1-Channel4";
+CM_ SG_ 2147495942 SetCH1to4PWMFreq "Control Channel1-Channel4";
+CM_ SG_ 2147496199 ValvesCurrentPID_P "Control Channel1-Channel4";
+CM_ SG_ 2147496199 ValvesCurrentPID_I "Control Channel1-Channel4";
+CM_ SG_ 2147496199 ValvesCurrentPID_D "Control Channel1-Channel4";
+CM_ SG_ 2147496199 CH5to8PWMFreq "Control Channel1-Channel4";
+CM_ SG_ 2147496199 CH1to4PWMFreq "Control Channel1-Channel4";
+CM_ SG_ 2147496198 SetValvesCurrentPID_P "Control Channel1-Channel4";
+CM_ SG_ 2147496198 SetValvesCurrentPID_I "Control Channel1-Channel4";
+CM_ SG_ 2147496198 SetValvesCurrentPID_D "Control Channel1-Channel4";
+CM_ SG_ 2147496198 EnableValvesCurrentPIDSet "Control Channel1-Channel4";
+CM_ SG_ 2147496198 EnableCH5to8PWMFreqSet "Control Channel1-Channel4";
+CM_ SG_ 2147496198 EnableCH1to4PWMFreqSet "Control Channel1-Channel4";
+CM_ SG_ 2147496198 SetCH5to8PWMFreq "Control Channel1-Channel4";
+CM_ SG_ 2147496198 SetCH1to4PWMFreq "Control Channel1-Channel4";
+CM_ SG_ 2147496194 RESV_CH8_State "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496194 RESV_CH7_State "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496194 RESV_CH6_State "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496194 VV_State "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496194 RESV_CH4_State "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496194 RESV_CH3_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147496194 RESV_Motor_CH2_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147496194 Motor_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495938 RV4_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495938 RV3_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495938 RV2_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495938 RV1_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495938 ASV4_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495938 ASV3_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495938 ASV2_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495938 ASV1_State "V = 10 * 1000 / 32768 * Code";
+CM_ SG_ 2147495936 CANPeriodSet "CAN Freqency = 2KHz/(1 + FreqDiv)";
+CM_ SG_ 2147496192 CANPeriodSet "CAN Freqency = 2KHz/(1 + FreqDiv)";
+CM_ SG_ 2147496207 CANPeriod "CAN Freqency = 2KHz/(1 + FreqDiv)";
+CM_ SG_ 2147496195 RESV_CH8_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496195 RESV_CH7_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496195 RESV_CH6_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496195 VV_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496195 RESV_CH4_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496195 RESV_CH3_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147495941 ASV4_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495941 ASV3_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495941 ASV2_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495941 ASV1_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495941 RV4_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495941 RV3_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495941 RV2_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495941 RV1_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495937 ASV4_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147495937 ASV3_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147495937 ASV2_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147495937 ASV1_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147495937 RV4_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147495937 RV3_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147495937 RV2_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147495937 RV1_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147496196 RESV_M_CH2_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496196 Motor_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147496197 RESV_CH8_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147496197 RESV_CH7_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147496197 RESV_CH6_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147496197 VV_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147496197 RESV_CH4_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147496197 RESV_CH3_Target_Current "Current = Rawcode * 0.001";
+CM_ SG_ 2147495939 ASV4_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147495939 ASV3_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147495939 ASV2_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147495939 ASV1_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147495939 RV4_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147495939 RV3_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147495939 RV1_Duty "Duty = Rawcode * 0.01";
+CM_ SG_ 2147495951 CANPeriod "CAN Freqency = 2KHz/(1 + FreqDiv)";
+CM_ SG_ 2147496193 RESV_M_CH2_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147496193 Motor_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147496193 RESV_V_CH8_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147496193 RESV_V_CH7_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147496193 RESV_V_CH6_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147496193 VV_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147496193 RESV_V_CH4_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+CM_ SG_ 2147496193 RESV_V_CH3_I "Vin = 10 * 1000 / 32768 * RawCode;
+Kv = 10 * 1000 / 32768;
+Ain = (Vin - 2500mV)/N/n (mA) = (Vin/N/n - 2500/N/n) (mA) = (Kv* RawCode /N/n - 2500/N/n) (mA);
+6-NP - 3:  N = 0.1042 mV/mA; n = 3
+K = 0.488125049984007;
+offset = -7997.44081893794;
+";
+BA_DEF_ BO_  "CANFD_BRS" ENUM  "0","1";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_DEF_  "CANFD_BRS" "1";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_ "BusType" "CAN FD";
+BA_ "DBName" "CAN2_DUT2";
+BA_ "VFrameFormat" BO_ 2147545103 15;
+BA_ "VFrameFormat" BO_ 2147545088 15;
+BA_ "VFrameFormat" BO_ 2147545089 15;
+BA_ "VFrameFormat" BO_ 2147483649 15;
+BA_ "VFrameFormat" BO_ 2147545090 15;
+BA_ "VFrameFormat" BO_ 2147495943 15;
+BA_ "VFrameFormat" BO_ 2147495942 15;
+BA_ "VFrameFormat" BO_ 2147496199 15;
+BA_ "VFrameFormat" BO_ 2147496198 15;
+BA_ "VFrameFormat" BO_ 2147496194 15;
+BA_ "VFrameFormat" BO_ 2147495938 15;
+BA_ "VFrameFormat" BO_ 2147495936 15;
+BA_ "VFrameFormat" BO_ 2147496192 15;
+BA_ "VFrameFormat" BO_ 2147496207 15;
+BA_ "VFrameFormat" BO_ 2147496195 15;
+BA_ "VFrameFormat" BO_ 2147495941 15;
+BA_ "VFrameFormat" BO_ 2147495937 15;
+BA_ "VFrameFormat" BO_ 2147496196 15;
+BA_ "VFrameFormat" BO_ 2147496197 15;
+BA_ "VFrameFormat" BO_ 2147495939 15;
+BA_ "VFrameFormat" BO_ 2147495951 15;
+BA_ "VFrameFormat" BO_ 2147496193 15;
+BA_ "VFrameFormat" BO_ 2147496452 15;
+BA_ "VFrameFormat" BO_ 2147496451 15;
+BA_ "VFrameFormat" BO_ 2147496450 15;
+BA_ "VFrameFormat" BO_ 2147496449 15;
+BA_ "VFrameFormat" BO_ 2147496453 15;
+BA_ "VFrameFormat" BO_ 2147496463 15;
+BA_ "VFrameFormat" BO_ 2147496448 15;
+BA_ "VFrameFormat" BO_ 2147496201 15;
+BA_ "VFrameFormat" BO_ 2147496200 15;
+VAL_ 2147545103 HeartbeatMonitorTime 0 "disable heartbeat monitor" ;
+VAL_ 2147545103 IsDebugModeOn 1 "Debug Actived" 0 "Debug Deactived" ;
+VAL_ 2147545088 SetHeartbeatMonitorTime 0 "disable heartbeat monitor" ;
+VAL_ 2147545088 EnableHeartbeatMonitorTimeSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147545088 SetDebugMode 1 "Debug Actived" 0 "Debug Deactived" ;
+VAL_ 2147545088 EnabledDebugModeSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147545089 SetPower48V 1 "Power On" 0 "Power Off" ;
+VAL_ 2147545089 SetPower12V 1 "Power On" 0 "Power Off" ;
+VAL_ 2147545089 Enable48VPowerSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147545089 Enable12VPowerSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147545090 IsHeartbeatAlive 1 "Alive" 0 "Lost" ;
+VAL_ 2147545090 IsDebugModeOn 1 "Debug Actived" 0 "Debug Deactived" ;
+VAL_ 2147545090 Power48VState 1 "Power On" 0 "Power Off" ;
+VAL_ 2147545090 Power12VState 1 "Power On" 0 "Power Off" ;
+VAL_ 2147496194 RESV_CH8_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147496194 RESV_CH7_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147496194 RESV_CH6_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147496194 VV_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147496194 RESV_CH4_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147496194 RESV_CH3_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147496194 RESV_Motor_CH2_State 3 "In Protection" 2 "n.a." 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147496194 Motor_State 3 "In Protection" 2 "n.a." 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495938 RV4_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495938 RV3_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495938 RV2_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495938 RV1_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495938 ASV4_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495938 ASV3_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495938 ASV2_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495938 ASV1_State 3 "In Protection" 2 "Current Control" 1 "Duty Control" 0 "No Control" ;
+VAL_ 2147495936 EnableValveProtectionTimerSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147495936 EnableCANPeriodSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147496192 EnableMotorProtectionTimerSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147496192 EnableValveProtectionTimerSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147496192 EnableCANPeriodSet 1 "enableSetting" 0 "disableSetting" ;
+VAL_ 2147496448 EnableCANPeriodSet 1 "enableSetting" 0 "disableSetting" ;
+SIG_VALTYPE_ 2147495943 ValvesCurrentPID_P : 1;
+SIG_VALTYPE_ 2147495943 ValvesCurrentPID_I : 1;
+SIG_VALTYPE_ 2147495943 ValvesCurrentPID_D : 1;
+SIG_VALTYPE_ 2147495942 SetValvesCurrentPID_P : 1;
+SIG_VALTYPE_ 2147495942 SetValvesCurrentPID_I : 1;
+SIG_VALTYPE_ 2147495942 SetValvesCurrentPID_D : 1;
+SIG_VALTYPE_ 2147496199 ValvesCurrentPID_P : 1;
+SIG_VALTYPE_ 2147496199 ValvesCurrentPID_I : 1;
+SIG_VALTYPE_ 2147496199 ValvesCurrentPID_D : 1;
+SIG_VALTYPE_ 2147496198 SetValvesCurrentPID_P : 1;
+SIG_VALTYPE_ 2147496198 SetValvesCurrentPID_I : 1;
+SIG_VALTYPE_ 2147496198 SetValvesCurrentPID_D : 1;
+SIG_VALTYPE_ 2147496452 Humidity : 1;
+SIG_VALTYPE_ 2147496451 P1_Pressure : 1;
+SIG_VALTYPE_ 2147496450 P2_Pressure : 1;
+SIG_VALTYPE_ 2147496449 Temperature : 1;
+SIG_VALTYPE_ 2147496453 P2_bar : 1;
+SIG_VALTYPE_ 2147496453 P1_bar : 1;
+SIG_VALTYPE_ 2147496453 Temperature : 1;
+SIG_VALTYPE_ 2147496453 Humidity : 1;
+

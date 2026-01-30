@@ -1,0 +1,218 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: LED ControlNode ADC3 ADC2 ADC1
+VAL_TABLE_ SoundAutoClosed 1 "Actived" 0 "Deactived" ;
+VAL_TABLE_ SoundWarned 1 "warned" 0 "not warned" ;
+VAL_TABLE_ HeartbeatMonitor 0 "disable heartbeat monitor" ;
+VAL_TABLE_ SoundAutoClosedTime 0 "disable auto close" ;
+VAL_TABLE_ HeartbeatAlive 1 "Alive" 0 "Lost" ;
+VAL_TABLE_ LightState 1 "On" 0 "Off" ;
+VAL_TABLE_ DebugMode 1 "Debug Actived" 0 "Debug Deactived" ;
+VAL_TABLE_ EnableSet 1 "Enable Setting" 0 "Disable Setting" ;
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ IsSoundWarned : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147545359 LED_Version: 6 LED
+ SG_ AutoSoundState : 25|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ SoundAutoClosedTime : 40|8@1+ (1,0) [0|255] "s"  ControlNode
+ SG_ HeartbeatMonitorTime : 32|8@1+ (1,0) [0|255] "s"  ControlNode
+ SG_ IsDebugModeOn : 24|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Year : 16|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Month : 8|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Day : 0|8@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147545344 LED_Configuration: 8 ControlNode
+ SG_ SetAutoSound : 40|1@1+ (1,0) [0|0] ""  LED
+ SG_ EnableAutoSoundSet : 32|1@1+ (1,0) [0|0] ""  LED
+ SG_ SetSoundAutoClosedTime : 56|8@1+ (1,0) [0|255] "s"  LED
+ SG_ SetHeartbeatMonitorTime : 24|8@1+ (1,0) [0|255] "s"  LED
+ SG_ EnableSoundAutoClosedTimeSet : 48|1@1+ (1,0) [0|0] ""  LED
+ SG_ EnableHeartbeatMonitorTimeSet : 16|1@1+ (1,0) [0|0] ""  LED
+ SG_ SetDebugMode : 8|1@1+ (1,0) [0|0] ""  LED
+ SG_ EnableDebugModeSet : 0|1@1+ (1,0) [0|0] ""  LED
+
+BO_ 2147545345 LED_Control: 2 ControlNode
+ SG_ SetSound : 3|1@1+ (1,0) [0|0] ""  LED
+ SG_ SetRedLight : 2|1@1+ (1,0) [0|0] ""  LED
+ SG_ EnableSoundSet : 11|1@1+ (1,0) [0|0] ""  LED
+ SG_ EnableRedLightSet : 10|1@1+ (1,0) [0|0] ""  LED
+ SG_ SetYellowLight : 1|1@1+ (1,0) [0|0] ""  LED
+ SG_ SetGreenLight : 0|1@1+ (1,0) [0|0] ""  LED
+ SG_ EnableYellowLightSet : 9|1@1+ (1,0) [0|0] ""  LED
+ SG_ EnableGreenLightSet : 8|1@1+ (1,0) [0|0] ""  LED
+
+BO_ 2147483650 PC_Heartbeat: 1 ControlNode
+ SG_ Monitor_Dummy : 0|8@1+ (1,0) [0|0] ""  LED
+
+BO_ 2147545346 LED_Response: 2 LED
+ SG_ YellowLightState : 1|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ SoundState : 3|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ RedLightState : 2|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ GreenLightState : 0|1@1+ (1,0) [0|0] ""  ControlNode
+ SG_ IsHeartbeatAlive : 8|1@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147496463 DUT3_Version: 4 ADC3
+ SG_ Version_Variant : 24|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Year : 0|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Month : 8|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Day : 16|8@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147496207 DUT2_Version: 4 ADC2
+ SG_ Version_Variant : 24|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Year : 0|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Month : 8|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Day : 16|8@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147496448 DUT3_SensorsConfiguration: 8 ControlNode
+ SG_ Variant : 24|8@1+ (1,0) [0|0] ""  ADC3
+ SG_ IsCANFDUsed : 0|1@1+ (1,0) [0|0] ""  ADC3
+ SG_ CANPeriod : 8|16@1+ (0.5,0) [0|0] "ms"  ADC3
+
+BO_ 2147496192 DUT2_SensorsConfiguration: 8 ControlNode
+ SG_ Variant : 24|8@1+ (1,0) [0|0] ""  ADC2
+ SG_ IsCANFDUsed : 0|1@1+ (1,0) [0|0] ""  ADC2
+ SG_ CANPeriod : 8|16@1+ (0.5,0) [0|0] "ms"  ADC2
+
+BO_ 2147496449 DUT3_Sensors: 16 ADC3
+ SG_ Dew_point_meter : 112|16@1- (0.003814697265625,-105) [-50|30] "t/°„C" Vector__XXX
+ SG_ Humidity : 96|16@1- (0.003814697265625,-25) [0|100] "%" Vector__XXX
+ SG_ Temperature : 80|16@1- (0.0076296273689993,-90) [-50|150] "°„C" Vector__XXX
+ SG_ Pressure_RES : 64|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_RR : 48|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_RL : 32|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_FR : 16|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_FL : 0|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+
+BO_ 2147496193 DUT2_Sensors: 16 ADC2
+ SG_ Dew_point_meter : 112|16@1- (0.003814697265625,-105) [-50|30] "t/°„C" Vector__XXX
+ SG_ Humidity : 96|16@1- (0.003814697265625,-25) [0|100] "%" Vector__XXX
+ SG_ Temperature : 80|16@1- (0.0076296273689993,-90) [-50|150] "°„C" Vector__XXX
+ SG_ Pressure_RES : 64|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_RR : 48|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_RL : 32|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_FR : 16|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_FL : 0|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+
+BO_ 2147495936 DUT1_SensorsConfiguration: 8 ControlNode
+ SG_ Variant : 24|8@1+ (1,0) [0|0] ""  ADC1
+ SG_ IsCANFDUsed : 0|1@1+ (1,0) [0|0] ""  ADC1
+ SG_ CANPeriod : 8|16@1+ (0.5,0) [0|0] "ms"  ADC1
+
+BO_ 2147495951 DUT1_Version: 4 ADC1
+ SG_ Version_Variant : 24|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Year : 0|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Month : 8|8@1+ (1,0) [0|0] ""  ControlNode
+ SG_ Version_Day : 16|8@1+ (1,0) [0|0] ""  ControlNode
+
+BO_ 2147495937 DUT1_Sensors: 16 ADC1
+ SG_ Dew_point_meter : 112|16@1- (0.003814697265625,-105) [-50|30] "t/°„C" Vector__XXX
+ SG_ Humidity : 96|16@1- (0.003814697265625,-25) [0|100] "%" Vector__XXX
+ SG_ Temperature : 80|16@1- (0.0076296273689993,-90) [-50|150] "°„C" Vector__XXX
+ SG_ Pressure_RES : 64|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_RR : 48|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_RL : 32|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_FR : 16|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+ SG_ Pressure_FL : 0|16@1- (0.00095367431640625,-6.25) [-2|16] "bar"  ControlNode
+
+
+
+CM_ "AD7606";
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+BA_DEF_ BO_  "CANFD_BRS" ENUM  "0","1";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_DEF_  "CANFD_BRS" "1";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_ "BusType" "CAN FD";
+BA_ "DBName" "CAN_LED_Sensors";
+BA_ "VFrameFormat" BO_ 2147545359 15;
+BA_ "VFrameFormat" BO_ 2147545344 15;
+BA_ "VFrameFormat" BO_ 2147545345 15;
+BA_ "VFrameFormat" BO_ 2147483650 15;
+BA_ "VFrameFormat" BO_ 2147545346 15;
+BA_ "VFrameFormat" BO_ 2147496463 15;
+BA_ "VFrameFormat" BO_ 2147496207 15;
+BA_ "VFrameFormat" BO_ 2147496448 15;
+BA_ "VFrameFormat" BO_ 2147496192 15;
+BA_ "VFrameFormat" BO_ 2147496449 15;
+BA_ "VFrameFormat" BO_ 2147496193 15;
+BA_ "VFrameFormat" BO_ 2147495936 15;
+BA_ "VFrameFormat" BO_ 2147495951 15;
+BA_ "VFrameFormat" BO_ 2147495937 15;
+VAL_ 3221225472 IsSoundWarned 1 "warned" 0 "not warned" ;
+VAL_ 2147545359 AutoSoundState 1 "Actived" 0 "Deactived" ;
+VAL_ 2147545359 SoundAutoClosedTime 255 "disable auto close" 0 "disable auto sound" ;
+VAL_ 2147545359 HeartbeatMonitorTime 0 "disable heartbeat monitor" ;
+VAL_ 2147545359 IsDebugModeOn 1 "Debug Actived" 0 "Debug Deactived" ;
+VAL_ 2147545344 SetAutoSound 1 "Actived" 0 "Deactived" ;
+VAL_ 2147545344 EnableAutoSoundSet 1 "Enable Setting" 0 "Disable Setting" ;
+VAL_ 2147545344 SetSoundAutoClosedTime 0 "disable auto close" ;
+VAL_ 2147545344 SetHeartbeatMonitorTime 0 "disable heartbeat monitor" ;
+VAL_ 2147545344 EnableSoundAutoClosedTimeSet 1 "Enable Setting" 0 "Disable Setting" ;
+VAL_ 2147545344 EnableHeartbeatMonitorTimeSet 1 "Enable Setting" 0 "Disable Setting" ;
+VAL_ 2147545344 SetDebugMode 1 "Debug Actived" 0 "Debug Deactived" ;
+VAL_ 2147545344 EnableDebugModeSet 1 "Enable Setting" 0 "Disable Setting" ;
+VAL_ 2147545345 SetSound 1 "On" 0 "Off" ;
+VAL_ 2147545345 SetRedLight 1 "On" 0 "Off" ;
+VAL_ 2147545345 EnableSoundSet 1 "Enable Setting" 0 "Disable Setting" ;
+VAL_ 2147545345 EnableRedLightSet 1 "Enable Setting" 0 "Disable Setting" ;
+VAL_ 2147545345 SetYellowLight 1 "On" 0 "Off" ;
+VAL_ 2147545345 SetGreenLight 1 "On" 0 "Off" ;
+VAL_ 2147545345 EnableYellowLightSet 1 "Enable Setting" 0 "Disable Setting" ;
+VAL_ 2147545345 EnableGreenLightSet 1 "Enable Setting" 0 "Disable Setting" ;
+VAL_ 2147545346 YellowLightState 1 "On" 0 "Off" ;
+VAL_ 2147545346 SoundState 1 "On" 0 "Off" ;
+VAL_ 2147545346 RedLightState 1 "On" 0 "Off" ;
+VAL_ 2147545346 GreenLightState 1 "On" 0 "Off" ;
+VAL_ 2147545346 IsHeartbeatAlive 1 "Alive" 0 "Lost" ;
+

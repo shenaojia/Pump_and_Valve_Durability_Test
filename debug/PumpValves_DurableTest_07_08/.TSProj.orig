@@ -1,0 +1,17 @@
+﻿[TSMaster]
+<<<<<<< HEAD
+TSMasterVersion=2025.6.5.1467
+=======
+TSMasterVersion=2025.6.4.1465
+>>>>>>> 15df24345288eca9bce619512a4061e724ad981a
+TSMasterArchitect=x64
+
+[Project]
+GUID=5C54054C-988B-4FF0-8BBE-92277CFAE3D3
+<<<<<<< HEAD
+LoadCount=37
+=======
+LoadCount=32
+>>>>>>> 15df24345288eca9bce619512a4061e724ad981a
+TSAppVersion=100
+
